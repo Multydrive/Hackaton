@@ -105,5 +105,10 @@
   <ItemGroup>
     <Resource Include="Images\lol-wallpaper.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fond.jpg" />
+    <Resource Include="Images\logo.png" />
+    <Resource Include="Images\recherche.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
