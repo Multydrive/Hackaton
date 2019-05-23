@@ -53,7 +53,7 @@ namespace Hackaton
         private List<string> _combattant = new List<string>() { "Colosse", "Blitzer" };
         private List<string> _tueur = new List<string>() { "Assassin", "Escarmoucheur" };
         private List<string> _mage = new List<string>() { "à Burst", "de Combat", "Artilleur" };
-        private List<string> _controleur = new List<string>() { "Enchanteur", "Piégeur" };
+        private List<string> _controleur = new List<string>() { "Enchanteur", "Piegeur" };
         private List<string> _tireur = new List<string>() { "Tireur" };
 
         public List<string> Region { get => _region; }
