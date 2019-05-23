@@ -39,8 +39,8 @@ namespace Hackaton
         {
             string tmp = "";
 
-            tmp += Convert.ToString(Apparition.Day)+ "-";
-            tmp += Convert.ToString(Apparition.Month) + "-";
+            tmp += Convert.ToString(Apparition.Day)+ "#";
+            tmp += Convert.ToString(Apparition.Month) + "#";
             tmp += Convert.ToString(Apparition.Year);
             
 
