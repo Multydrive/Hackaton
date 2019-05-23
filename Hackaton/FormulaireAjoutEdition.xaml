@@ -13,16 +13,18 @@
         <Button x:Name="Btn_Annuler" Content="Annuler" HorizontalAlignment="Left" Margin="288,293,0,0" VerticalAlignment="Top" Width="75" Height="19" Background="#FF145862" FontFamily="Friz Quadrata TT" Foreground="#FFF0ECEC" BorderBrush="#FFF7F6F6"/>
         <Button x:Name="Btn_Valider" Content="Valider" HorizontalAlignment="Left" Margin="182,293,0,0" VerticalAlignment="Top" Width="75" Height="19" Background="#FF145862" FontFamily="Friz Quadrata TT" Foreground="#FFF7E6E6" BorderBrush="#FFF3F3F3"/>
         <Image x:Name="Img_Champion" HorizontalAlignment="Left" Height="115" Margin="18,46,0,0" VerticalAlignment="Top" Width="115" />
-        <TextBox x:Name="Txtbox_Description" HorizontalAlignment="Left" Height="67" Margin="18,226,0,0" TextWrapping="Wrap" Text="Lorem ipsum dor it. Bla bla bla bla" VerticalAlignment="Top" Width="254" BorderBrush="{x:Null}" FontFamily="Friz Quadrata TT" Background="{x:Null}" Foreground="#FF65CBCA" FontWeight="Bold"/>
+        <TextBox x:Name="Txtbox_Description" HorizontalAlignment="Left" Height="67" Margin="18,226,0,0" TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus." VerticalAlignment="Top" Width="254" BorderBrush="{x:Null}" FontFamily="Friz Quadrata TT" Background="{x:Null}" Foreground="#FF65CBCA" FontWeight="Bold"/>
         <Label Content="Description" HorizontalAlignment="Left" Margin="18,196,0,0" VerticalAlignment="Top" Width="107" Height="25" Foreground="#FFFDFDFD" FontWeight="Bold" FontFamily="Friz Quadrata TT"/>
         <ComboBox x:Name="ComboBox_Classe" HorizontalAlignment="Left" Margin="418,79,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" FontFamily="Friz Quadrata TT" Background="Black"/>
         <DatePicker HorizontalAlignment="Left" Margin="418,269,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" FontFamily="Friz Quadrata TT"/>
-        <ComboBox x:Name="ComboBox_Classe_Copy" HorizontalAlignment="Left" Margin="418,196,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" FontFamily="Friz Quadrata TT"/>
+        <ComboBox x:Name="ComboBox_Region" HorizontalAlignment="Left" Margin="418,196,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" FontFamily="Friz Quadrata TT"/>
         <Label Content="Région" HorizontalAlignment="Left" Margin="418,170,0,0" VerticalAlignment="Top" Width="120" Height="26" Foreground="White" FontWeight="Bold" FontFamily="Friz Quadrata TT" RenderTransformOrigin="0.611,0.454"/>
         <Label Content="Sous-classe" HorizontalAlignment="Left" Margin="418,109,0,0" VerticalAlignment="Top" Width="120" Height="26" FontWeight="Bold" FontFamily="Friz Quadrata TT" Foreground="#FFFAFAFA" />
-        <ComboBox x:Name="ComboBox_Classe_Copy1" HorizontalAlignment="Left" Margin="418,140,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" FontFamily="Friz Quadrata TT" Background="Black"/>
-        <Button Content="Choisir une image" HorizontalAlignment="Left" Margin="143,54,0,0" VerticalAlignment="Top" Width="114" Background="{x:Null}" FontFamily="Friz Quadrata TT" Foreground="#FFF3DDDD" FontWeight="Bold" BorderBrush="{x:Null}"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="143,88,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="114"/>
+        <ComboBox x:Name="ComboBox_Sous_Classe" HorizontalAlignment="Left" Margin="418,140,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" FontFamily="Friz Quadrata TT" Background="Black"/>
+        <Button Name ="Btn_Open" Content="Choisir une image"  HorizontalAlignment="Left" Margin="143,54,0,0" VerticalAlignment="Top" Width="114" Background="{x:Null}" FontFamily="Friz Quadrata TT" Foreground="#FFF3DDDD" FontWeight="Bold" BorderBrush="White" Height="29" Click="Btn_Open_Click">
+            
+        </Button>
+        <TextBox Name ="Txtb1" HorizontalAlignment="Left" Height="23" Margin="143,88,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="114"/>
         <Grid.Background>
             <ImageBrush ImageSource="Images\lol-wallpaper.jpg"/>
         </Grid.Background>

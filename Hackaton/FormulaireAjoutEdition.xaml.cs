@@ -25,6 +25,28 @@ namespace Hackaton
             InitializeComponent();
         }
 
-        
+        private void Btn_Open_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Multiselect = true;
+            fileDialog.Filter = "Log Files |*. log|Textfiles|*.txt |All file| ";
+                fileDialog.DefaultExt = ".log";
+            Nullable<bool> dialogOK = fileDialog.ShowDialog();
+
+            if (dialogOK == true)
+            {
+                string sFilenames = "";
+                // < @loop: Filenames > 
+                foreach (string sFilename in fileDialog.FileNames)
+                {
+                    //collect string sFilenames += ";" + sFilename; 
+                }
+                sFilenames = sFilenames.Substring(1); //delete first ; 
+                // </ @Loop: Filenames > 
+                Txtb1.Text = sFilenames;
+
+            }
+        }
     }
+
 }
