@@ -47,8 +47,8 @@ namespace Hackaton
         private void Btn_Open_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Multiselect = true;
-            fileDialog.Filter = "Images|*.bmp;*.png;*.jpg; | Tout les fichiers|*.*";
+            fileDialog.Multiselect = false;
+            fileDialog.Filter = "Fichiers images|*.bmp;*.png;*.jpg";
             Nullable<bool> dialogOK = fileDialog.ShowDialog();
 
             if (dialogOK == true)
