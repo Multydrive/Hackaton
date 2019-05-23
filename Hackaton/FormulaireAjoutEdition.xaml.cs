@@ -48,7 +48,7 @@ namespace Hackaton
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Multiselect = true;
-            fileDialog.Filter = "Log Files |*. log|Textfiles|*.txt |All file| ";
+            fileDialog.Filter = "Png Files |*. log|Textfiles|*.txt |All file| ";
                 fileDialog.DefaultExt = ".log";
             Nullable<bool> dialogOK = fileDialog.ShowDialog();
 
