@@ -22,6 +22,7 @@ namespace Hackaton
     {
         string path = System.AppDomain.CurrentDomain.BaseDirectory;
         string nomdedossier = "/Champions";
+        string chemin; 
 
         public FormulaireAjoutEdition()
         {
@@ -29,7 +30,7 @@ namespace Hackaton
             this.Title = "Ajout champion";
         }
 
-        public FormulaireAjoutEdition(Champion ttt)
+        public FormulaireAjoutEdition(Champion ttt) 
         {
             InitializeComponent();
             this.Title = "Modification champion";
@@ -42,7 +43,7 @@ namespace Hackaton
 
         public Champion RecupDonneesSaisies()
         {
-            return new Champion(Txtbox_Nom.Text, ComboBox_Region.Text, ComboBox_Classe.Text, ComboBox_Sous_Classe.Text, sFilenames, Date_Apparition.SelectedDate);
+            return new Champion(Txtbox_Nom.Text, ComboBox_Region.Text, ComboBox_Classe.Text, ComboBox_Sous_Classe.Text, chemin, Date_Apparition.SelectedDate.Value);
         }
 
         //Listes des Combos Box
@@ -64,8 +65,11 @@ namespace Hackaton
         public List<string> Controleur { get => _controleur; }
         public List<string> Tireur { get => _tireur; }
 
-        private string Btn_Open_Click(object sender, RoutedEventArgs e)
+      
+
+        public void Btn_Open_Click(object sender, RoutedEventArgs e)
         {
+           
             string sFilenames = "";
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Multiselect = false;
@@ -83,11 +87,11 @@ namespace Hackaton
                 sFilenames = sFilenames.Substring(1); //delete first ; 
                 // </ @Loop: Filenames > 
                 // Txtb1.Text = sFilenames; textbox supprimée car inutile
-
+               chemin = sFilenames;
             }
-
-            return sFilenames;
+            
         }
+        
 
         private void WindowFormulaire_Loaded(object sender, RoutedEventArgs e)
         {
@@ -134,7 +138,9 @@ namespace Hackaton
             }
         }
 
-        private void Btn_Valider_Click(object sender, RoutedEventArgs e, string sFilenames)
+      
+
+        private void Btn_Valider_Click(object sender, RoutedEventArgs e)
         {
             if (File.Exists (path + nomdedossier))
             {
@@ -142,7 +148,7 @@ namespace Hackaton
             }
             else
             {
-                File.Copy(sFilenames, path + nomdedossier);
+                File.Copy(chemin, path + nomdedossier);
             }
             this.DialogResult = true;
         }

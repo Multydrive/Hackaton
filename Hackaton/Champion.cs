@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hackaton
 {
-    class Champion
+    public class Champion
     {
         //attributs
         private string _nom;
