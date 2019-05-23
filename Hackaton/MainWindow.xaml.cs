@@ -100,21 +100,23 @@ namespace Hackaton
 
         private void Btn_Lecture_Click(object sender, RoutedEventArgs e)
         {
-            listing.Clear();
-            StreamReader lecteur = new StreamReader(path + nomdefichier);
-            while (!lecteur.EndOfStream)
+            if (File.Exists(path + nomdefichier) == true)
             {
-                string tmp = lecteur.ReadLine();
-                string[] donnees_eclatees = tmp.Split('#');
-                listing.Add(new Champion(donnees_eclatees[0], donnees_eclatees[1], donnees_eclatees[2], donnees_eclatees[3]));
+                listing.Clear();
+                StreamReader lecteur = new StreamReader(path + nomdefichier);
+                while (!lecteur.EndOfStream)
+                {
+                    string tmp = lecteur.ReadLine();
+                    string[] donnees_eclatees = tmp.Split('#');
+                    listing.Add(new Champion(donnees_eclatees[0], donnees_eclatees[1], donnees_eclatees[2], donnees_eclatees[3]));
+                }
+                lecteur.Close();
             }
-            lecteur.Close();
-        }
             else
             {
                 MessageBox.Show("Fichier non trouvé");
             }
-}
+        }
         private void Btn_Sauvergarder_Click(object sender, RoutedEventArgs e)
         {
             StreamWriter ecriveur = new StreamWriter(path + nomdefichier, false);
