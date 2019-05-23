@@ -9,7 +9,7 @@
     <Grid Background="Black">
         <DataGrid x:Name="Dtg_datagrid01" HorizontalAlignment="Left" Height="310" Margin="278,21,0,0" VerticalAlignment="Top" Width="489" Background="#FF171414" BorderBrush="#FFF3B227" Foreground="#FFF1B81E" FontFamily="Friz Quadrata TT"/>
         
-        <Button Content="Ajouter" HorizontalAlignment="Left" Margin="32,141,0,0" VerticalAlignment="Top" Width="204" Height="35" BorderBrush="#FFA86504" FontSize="24" Foreground="#FFF7AB25" FontFamily="Friz Quadrata TT">
+        <Button x:Name="Btn_Ajouter" Content="Ajouter" HorizontalAlignment="Left" Margin="32,141,0,0" VerticalAlignment="Top" Width="204" Height="35" BorderBrush="#FFA86504" FontSize="24" Foreground="#FFF7AB25" FontFamily="Friz Quadrata TT">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -17,7 +17,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Supprimer" HorizontalAlignment="Left" Margin="32,254,0,0" VerticalAlignment="Top" Width="204" Height="35" FontSize="24" BorderBrush="#FFD6840D" Foreground="#FFF7AC28" FontFamily="Friz Quadrata TT">
+        <Button x:Name="Btn_Supprimer" Content="Supprimer" HorizontalAlignment="Left" Margin="32,254,0,0" VerticalAlignment="Top" Width="204" Height="35" FontSize="24" BorderBrush="#FFD6840D" Foreground="#FFF7AC28" FontFamily="Friz Quadrata TT">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -25,7 +25,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Modifier" HorizontalAlignment="Left" Margin="32,197,0,0" VerticalAlignment="Top" Width="204" Height="35" FontSize="24" BorderBrush="#FFCF7F0B" Foreground="#FFFDB22F" FontFamily="Friz Quadrata TT">
+        <Button x:Name="Btn_Modifier" Content="Modifier" HorizontalAlignment="Left" Margin="32,197,0,0" VerticalAlignment="Top" Width="204" Height="35" FontSize="24" BorderBrush="#FFCF7F0B" Foreground="#FFFDB22F" FontFamily="Friz Quadrata TT">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -33,7 +33,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Importer" HorizontalAlignment="Left" Margin="32,310,0,0" VerticalAlignment="Top" Width="204" Height="35" FontSize="24" BorderBrush="#FFDE880B" Foreground="#FFF7AE2E" FontFamily="Friz Quadrata TT">
+        <Button x:Name="Btn_Lecture" Content="Importer" HorizontalAlignment="Left" Margin="32,310,0,0" VerticalAlignment="Top" Width="204" Height="35" FontSize="24" BorderBrush="#FFDE880B" Foreground="#FFF7AE2E" FontFamily="Friz Quadrata TT">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -41,17 +41,17 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Label Content="Rechercher" HorizontalAlignment="Left" Margin="290,364,0,0" VerticalAlignment="Top" Width="386" Height="31" Background="#FF171B1D" FontFamily="Friz Quadrata TT" Foreground="#FFF9B115"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="708,355,0,0" VerticalAlignment="Top" Width="51" Height="44" Foreground="#FFF39917" BorderBrush="#FFF5891D">
+        <Label x:Name="Lbl_Rechercher" Content="Rechercher" HorizontalAlignment="Left" Margin="290,364,0,0" VerticalAlignment="Top" Width="386" Height="31" Background="#FF171B1D" FontFamily="Friz Quadrata TT" Foreground="#FFF9B115" FontSize="18"/>
+        <Button x:Name="Btn_Rechercher" Content="Button" HorizontalAlignment="Left" Margin="708,355,0,0" VerticalAlignment="Top" Width="51" Height="44" Foreground="#FFF39917" BorderBrush="#FFF5891D">
             <Button.Background>
                 <ImageBrush ImageSource="Images/recherche.jpg"/>
             </Button.Background>
         </Button>
-        <Button Content="Sauvegarder" HorizontalAlignment="Left" Margin="32,364,0,0" VerticalAlignment="Top" Width="204" Height="35" BorderBrush="#FFFBAC21" Foreground="#FFE6AF1E" FontSize="24" FontFamily="Friz Quadrata TT">
+        <Button x:Name="Btn_Sauvegarder" Content="Sauvegarder" HorizontalAlignment="Left" Margin="32,364,0,0" VerticalAlignment="Top" Width="204" Height="35" BorderBrush="#FFFBAC21" Foreground="#FFE6AF1E" FontSize="24" FontFamily="Friz Quadrata TT">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="#FF3CEA83" Offset="1"/>
+                    <GradientStop Color="#FF7535E4" Offset="1"/>
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
