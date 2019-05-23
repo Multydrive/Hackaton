@@ -28,25 +28,6 @@ namespace Hackaton
             DataContext = listing;
         }
 
-        //Listes des Combos Box
-        private List<string> _region = new List<string>() { "Bandle", "Bilgewater", "Demacia", "Freljord", "Ionia", "Mont Targon", "Noxus", "Néant", "Piltover", "Shurima", "Zaun", "Iles Obscures", "Runeterra" };
-        private List<string> _classe = new List<string>() { "Tank", "Combattant", "Tueur", "Mage", "Controleur", "Tireur" };
-        private List<string> _tank = new List<string>() { "Initiateur", "Gardien" };
-        private List<string> _combattant = new List<string>() { "Colosse", "Blitzer" };
-        private List<string> _tueur = new List<string>() { "Assassin", "Escarmoucheur" };
-        private List<string> _mage = new List<string>() { "à Burst", "de Combat", "Artilleur" };
-        private List<string> _controleur = new List<string>() { "Enchanteur", "Piégeur" };
-        private List<string> _tireur = new List<string>() { "Tireur" };
-
-        public List<string> Region { get => _region; }
-        public List<string> Classe { get => _classe; }
-        public List<string> Tank { get => _tank; }
-        public List<string> Combattant { get => _combattant; }
-        public List<string> Tueur { get => _tueur; }
-        public List<string> Mage { get => _mage; }
-        public List<string> Controleur { get => _controleur; }
-        public List<string> Tireur { get => _tireur; }
-
         ObservableCollection<Champion> listing = new ObservableCollection<Champion>();
         string path = System.AppDomain.CurrentDomain.BaseDirectory;
         string nomdefichier = "/database.txt";
