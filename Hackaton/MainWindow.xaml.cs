@@ -108,7 +108,14 @@ namespace Hackaton
                 {
                     string tmp = lecteur.ReadLine();
                     string[] donnees_eclatees = tmp.Split('#');
-                    listing.Add(new Champion(donnees_eclatees[0], donnees_eclatees[1], donnees_eclatees[2], donnees_eclatees[3]));
+
+                    short Y, M, D;
+                    Int16.TryParse(donnees_eclatees[7], out Y);
+                    Int16.TryParse(donnees_eclatees[6], out M);
+                    Int16.TryParse(donnees_eclatees[5], out D);
+
+                    DateTime date = new DateTime(Y, M, D);
+                    listing.Add(new Champion(donnees_eclatees[0], donnees_eclatees[1], donnees_eclatees[2], donnees_eclatees[3], donnees_eclatees[4], date));
                 }
                 lecteur.Close();
             }
