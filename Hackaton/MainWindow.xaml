@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hackaton"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="900">
+        Title="MainWindow" Height="450" Width="900"
+        ResizeMode="NoResize">
     <Window.Resources>
         <CollectionViewSource x:Key="ListingDesPersonnages" Source="{Binding}"/>
     </Window.Resources>
     <Grid Background="Black">
-        <DataGrid x:Name="Dtg_datagrid01" HorizontalAlignment="Left" Height="310" Margin="278,21,0,0" VerticalAlignment="Top" 
+        <DataGrid x:Name="Dtg_datagrid01" HorizontalAlignment="Left" Height="310" Margin="278,21,0,0" VerticalAlignment="Top" IsReadOnly="True"
                   Width="585" Background="#FF171414" BorderBrush="#FFF3B227" Foreground="#FFF1B81E" FontFamily="Friz Quadrata TT" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource ListingDesPersonnages}}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Image :" Width="34*" Binding="{Binding Image}">
