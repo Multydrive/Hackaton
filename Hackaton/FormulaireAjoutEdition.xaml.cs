@@ -12,14 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Win32;
+using System.Collections.ObjectModel; // Collection observable 
+using System.IO; // Accès fichiers lecture-ecriture
 
 namespace Hackaton
 {
-    /// <summary>
-    /// Logique d'interaction pour FormulaireAjoutEdition.xaml
-    /// </summary>
+   
     public partial class FormulaireAjoutEdition : Window
     {
+        string path = System.AppDomain.CurrentDomain.BaseDirectory;
+        string nomdedossier = "/Champions";
+
         public FormulaireAjoutEdition()
         {
             InitializeComponent();
@@ -35,9 +38,11 @@ namespace Hackaton
             ComboBox_Sous_Classe.Text = ttt.Sous_classe;
             ComboBox_Region.Text = ttt.Region;
             Date_Apparition.SelectedDate = ttt.Apparition ;
-            Img_Champion.Source = ttt.Image;
+        }
 
-
+        public Champion RecupDonneesSaisies()
+        {
+            return new Champion(Txtbox_Nom.Text, ComboBox_Region.Text, ComboBox_Classe.Text, ComboBox_Sous_Classe.Text, sFilenames, Date_Apparition.SelectedDate);
         }
 
         //Listes des Combos Box
@@ -59,16 +64,17 @@ namespace Hackaton
         public List<string> Controleur { get => _controleur; }
         public List<string> Tireur { get => _tireur; }
 
-        private void Btn_Open_Click(object sender, RoutedEventArgs e)
+        private string Btn_Open_Click(object sender, RoutedEventArgs e)
         {
+            string sFilenames = "";
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Multiselect = false;
-            fileDialog.Filter = "Fichiers images|*.bmp;*.png;*.jpg";
+            fileDialog.Filter = "Fichiers images|*.png";
             Nullable<bool> dialogOK = fileDialog.ShowDialog();
 
             if (dialogOK == true)
             {
-                string sFilenames = "";
+                
                 // < @loop: Filenames > 
                 foreach (string sFilename in fileDialog.FileNames)
                 {
@@ -79,6 +85,8 @@ namespace Hackaton
                 // Txtb1.Text = sFilenames; textbox supprimée car inutile
 
             }
+
+            return sFilenames;
         }
 
         private void WindowFormulaire_Loaded(object sender, RoutedEventArgs e)
@@ -124,6 +132,24 @@ namespace Hackaton
                     ComboBox_Sous_Classe.ItemsSource = Tireur;
                     break;
             }
+        }
+
+        private void Btn_Valider_Click(object sender, RoutedEventArgs e, string sFilenames)
+        {
+            if (File.Exists (path + nomdedossier))
+            {
+
+            }
+            else
+            {
+                File.Copy(sFilenames, path + nomdedossier);
+            }
+            this.DialogResult = true;
+        }
+
+        private void Btn_Annuler_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
         }
     }
 
