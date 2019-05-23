@@ -23,7 +23,7 @@
             <Label Content="Sous-classe" HorizontalAlignment="Left" Margin="418,109,0,0" VerticalAlignment="Top" Width="120" Height="26" FontWeight="Bold" FontFamily="Friz Quadrata TT" Foreground="#FFFAFAFA" />
             <ComboBox x:Name="ComboBox_Classe_Copy1" HorizontalAlignment="Left" Margin="418,140,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" FontFamily="Friz Quadrata TT" Background="Black"/>
             <Grid.Background>
-                <ImageBrush ImageSource="\Images\lol-wallpaper.jpg"/>
+                <ImageBrush ImageSource="Images\lol-wallpaper.jpg"/>
             </Grid.Background>
 
 
