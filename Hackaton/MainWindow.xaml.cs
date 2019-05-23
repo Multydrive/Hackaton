@@ -129,6 +129,8 @@ namespace Hackaton
             }
             MessageBox.Show("Nombre d'occurences :" + Convert.ToString(cpt));
         }
+
+        
     }
 
     }
