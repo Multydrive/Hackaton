@@ -13,12 +13,48 @@
         <DataGrid x:Name="Dtg_datagrid01" HorizontalAlignment="Left" Height="310" Margin="278,21,0,0" VerticalAlignment="Top" 
                   Width="585" Background="#FF171414" BorderBrush="#FFF3B227" Foreground="#FFF1B81E" FontFamily="Friz Quadrata TT" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource ListingDesPersonnages}}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Image :" Width="34*" Binding="{Binding Image}"/>
-                <DataGridTextColumn Header="Nom :" Width="33*" Binding="{Binding Nom}"/>
-                <DataGridTextColumn Header="Région :" Width="33*" Binding="{Binding Region}"/>
-                <DataGridTextColumn Header="Classe :" Width="34*" Binding="{Binding Classe}"/>
-                <DataGridTextColumn Header="Sous-Classe :" Width="34*" Binding="{Binding Sous_classe}"/>
-                <DataGridTextColumn Header="Date de Sortie" Width="34*" Binding="{Binding Apparition}"/>
+                <DataGridTextColumn Header="Image :" Width="34*" Binding="{Binding Image}">
+                    <DataGridTextColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="Black"/>
+                            </Style>
+                        </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Nom :" Width="33*" Binding="{Binding Nom}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Black"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Région :" Width="33*" Binding="{Binding Region}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Black"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Classe :" Width="34*" Binding="{Binding Classe}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Black"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Sous-Classe :" Width="34*" Binding="{Binding Sous_classe}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Black"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Date de Sortie" Width="34*" Binding="{Binding Apparition}">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Black"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
             </DataGrid.Columns>
 
         </DataGrid>
