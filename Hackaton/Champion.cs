@@ -37,8 +37,14 @@ namespace Hackaton
         //Override de ToString
         public override string ToString()
         {
+            string tmp = "";
 
-            return this.Nom + "#" + this.Region + "#" + this.Classe + "#" + this.Sous_classe + "#";
+            tmp += Convert.ToString(Apparition.Day)+ "-";
+            tmp += Convert.ToString(Apparition.Month) + "-";
+            tmp += Convert.ToString(Apparition.Year);
+            
+
+            return this.Image + "#" + this.Nom + "#" + this.Region + "#" + this.Classe + "#" + this.Sous_classe + "#" + tmp +"#";
         }
     }
 }
