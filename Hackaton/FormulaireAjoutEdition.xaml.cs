@@ -23,6 +23,21 @@ namespace Hackaton
         public FormulaireAjoutEdition()
         {
             InitializeComponent();
+            this.Title = "Ajout champion";
+        }
+
+        public FormulaireAjoutEdition(Champion ttt)
+        {
+            InitializeComponent();
+            this.Title = "Modification champion";
+            Txtbox_Nom.Text = ttt.Nom;
+            ComboBox_Classe.Text = ttt.Classe;
+            ComboBox_Sous_Classe.Text = ttt.Sous_classe;
+            ComboBox_Region.Text = ttt.Region;
+            Date_Apparition.SelectedDate = ttt.Apparition ;
+            Img_Champion.Source = ttt.Image;
+
+
         }
 
         //Listes des Combos Box
@@ -61,7 +76,7 @@ namespace Hackaton
                 }
                 sFilenames = sFilenames.Substring(1); //delete first ; 
                 // </ @Loop: Filenames > 
-                Txtb1.Text = sFilenames;
+                // Txtb1.Text = sFilenames; textbox supprimée car inutile
 
             }
         }

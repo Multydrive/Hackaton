@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="FormulaireAjoutEdition" Height="362.8" Width="555.2" Loaded="WindowFormulaire_Loaded">
     <Grid>
-        <Label Content="Date de parution" HorizontalAlignment="Left" Margin="418,237,0,0" VerticalAlignment="Top" Width="120" Height="26" Foreground="#FFB87C3D" FontWeight="Bold" FontFamily="Friz Quadrata TT"/>
+        <Label Content="Date de parution" HorizontalAlignment="Left" Margin="418,231,0,0" VerticalAlignment="Top" Width="120" Height="26" Foreground="#FFB87C3D" FontWeight="Bold" FontFamily="Friz Quadrata TT"/>
         <Label Content="Classe" HorizontalAlignment="Left" Margin="418,48,0,0" VerticalAlignment="Top" Width="120" Height="26" FontWeight="Bold" FontFamily="Friz Quadrata TT" Foreground="#FFB87C3D" Background="Transparent" />
         <TextBox x:Name="Txtbox_Nom" HorizontalAlignment="Left" Height="23" Margin="18,10,0,0" TextWrapping="Wrap" Text="NOM DU CHAMPION" VerticalAlignment="Top" Width="239" Background="{x:Null}" FontFamily="Friz Quadrata TT" Foreground="#FFB87C3D" FontWeight="Bold" BorderBrush="{x:Null}" FontSize="20"/>
-        <Image x:Name="Img_Champion" HorizontalAlignment="Left" Height="115" Margin="18,46,0,0" VerticalAlignment="Top" Width="115" Source="Images\AatroxSquare.png" />
+        <Image x:Name="Img_Champion" HorizontalAlignment="Left" Height="115" Margin="18,46,0,0" VerticalAlignment="Top" Width="115" />
         <TextBox x:Name="Txtbox_Description" HorizontalAlignment="Left" Height="67" Margin="19,243,0,0" TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus." VerticalAlignment="Top" Width="254" BorderBrush="{x:Null}" FontFamily="Friz Quadrata TT" Background="{x:Null}" Foreground="#FFB87C3D" FontWeight="Bold"/>
         <Label Content="Description" HorizontalAlignment="Left" Margin="19,213,0,0" VerticalAlignment="Top" Width="107" Height="25" Foreground="#FFB87C3D" FontWeight="Bold" FontFamily="Friz Quadrata TT"/>
         <ComboBox x:Name="ComboBox_Classe" HorizontalAlignment="Left" Margin="418,79,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" FontFamily="Friz Quadrata TT" Background="Black" SelectionChanged="ComboBox_Classe_SelectionChanged"/>
-        <DatePicker x:Name="Date" HorizontalAlignment="Left" Margin="418,263,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" FontFamily="Friz Quadrata TT"/>
+        <DatePicker x:Name="Date_Apparition" HorizontalAlignment="Left" Margin="418,257,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" FontFamily="Friz Quadrata TT"/>
         <ComboBox x:Name="ComboBox_Region" HorizontalAlignment="Left" Margin="418,196,0,0" VerticalAlignment="Top" Width="120" FontWeight="Bold" FontFamily="Friz Quadrata TT"/>
         <Label Content="Région" HorizontalAlignment="Left" Margin="418,170,0,0" VerticalAlignment="Top" Width="120" Height="26" Foreground="#FFB87C3D" FontWeight="Bold" FontFamily="Friz Quadrata TT" RenderTransformOrigin="0.611,0.454"/>
         <Label Content="Sous-classe" HorizontalAlignment="Left" Margin="418,109,0,0" VerticalAlignment="Top" Width="120" Height="26" FontWeight="Bold" FontFamily="Friz Quadrata TT" Foreground="#FFB87C3D" />
@@ -35,7 +35,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="Btn_Btn_Open" Content="Choisir une image" HorizontalAlignment="Left" Margin="19,166,0,0" VerticalAlignment="Top" Width="114" Height="25" BorderBrush="#FFA86504" Foreground="#FFF7AB25" FontFamily="Friz Quadrata TT" Click="Btn_Open_Click">
+        <Button x:Name="Btn_Btn_Open" Content="Choisir une image" HorizontalAlignment="Left" Margin="18,166,0,0" VerticalAlignment="Top" Width="115" Height="25" BorderBrush="#FFA86504" Foreground="#FFF7AB25" FontFamily="Friz Quadrata TT" Click="Btn_Open_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
