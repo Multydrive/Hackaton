@@ -117,7 +117,7 @@ namespace Hackaton
                 MessageBox.Show("Fichier non trouvé");
             }
         }
-        private void Btn_Sauvergarder_Click(object sender, RoutedEventArgs e)
+        private void Btn_Sauvegarder_Click(object sender, RoutedEventArgs e)
         {
             StreamWriter ecriveur = new StreamWriter(path + nomdefichier, false);
             foreach (Champion xxx in listing)
@@ -126,5 +126,10 @@ namespace Hackaton
             }
             ecriveur.Close();
         }
+        private void Btn_Rechercher_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
