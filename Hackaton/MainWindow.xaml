@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="Black">
-        <DataGrid HorizontalAlignment="Left" Height="310" Margin="278,21,0,0" VerticalAlignment="Top" Width="489" Background="#FF171414" BorderBrush="#FFF3B227" Foreground="#FFF1B81E" FontFamily="Friz Quadrata TT"/>
+        <DataGrid x:Name="Dtg_datagrid01" HorizontalAlignment="Left" Height="310" Margin="278,21,0,0" VerticalAlignment="Top" Width="489" Background="#FF171414" BorderBrush="#FFF3B227" Foreground="#FFF1B81E" FontFamily="Friz Quadrata TT"/>
         
         <Button Content="Ajouter" HorizontalAlignment="Left" Margin="32,141,0,0" VerticalAlignment="Top" Width="204" Height="35" BorderBrush="#FFA86504" FontSize="24" Foreground="#FFF7AB25" FontFamily="Friz Quadrata TT">
             <Button.Background>
