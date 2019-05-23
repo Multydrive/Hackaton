@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hackaton"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="900">
     <Window.Resources>
         <CollectionViewSource x:Key="ListingDesPersonnages" Source="{Binding}"/>
     </Window.Resources>
     <Grid Background="Black">
         <DataGrid x:Name="Dtg_datagrid01" HorizontalAlignment="Left" Height="310" Margin="278,21,0,0" VerticalAlignment="Top" 
-                  Width="489" Background="#FF171414" BorderBrush="#FFF3B227" Foreground="#FFF1B81E" FontFamily="Friz Quadrata TT" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource ListingDesPersonnages}}">
+                  Width="585" Background="#FF171414" BorderBrush="#FFF3B227" Foreground="#FFF1B81E" FontFamily="Friz Quadrata TT" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource ListingDesPersonnages}}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Image :" Width="34*" Binding="{Binding Image}"/>
                 <DataGridTextColumn Header="Nom :" Width="33*" Binding="{Binding Nom}"/>
@@ -55,8 +55,8 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <TextBox x:Name="TxtB_recherche" Text="Rechercher" HorizontalAlignment="Left" Margin="290,364,0,0" VerticalAlignment="Top" Width="386" Height="31" Background="#FF171B1D" FontFamily="Friz Quadrata TT" Foreground="#FFF9B115" FontSize="18"/>
-        <Button x:Name="Btn_Rechercher" Content="Button" HorizontalAlignment="Left" Margin="708,355,0,0" VerticalAlignment="Top" Width="51" Height="44" Foreground="#FFF39917" BorderBrush="#FFF5891D" Click="Btn_Rechercher_Click">
+        <TextBox x:Name="TxtB_recherche" Text="Rechercher" HorizontalAlignment="Left" Margin="326,364,0,0" VerticalAlignment="Top" Width="386" Height="31" Background="#FF171B1D" FontFamily="Friz Quadrata TT" Foreground="#FFF9B115" FontSize="18"/>
+        <Button x:Name="Btn_Rechercher" Content="Button" HorizontalAlignment="Left" Margin="779,355,0,0" VerticalAlignment="Top" Width="51" Height="44" Foreground="#FFF39917" BorderBrush="#FFF5891D" Click="Btn_Rechercher_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Images/recherche.jpg"/>
             </Button.Background>
@@ -69,7 +69,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Image x:Name="Logo" HorizontalAlignment="Right" Margin="0,10,556,306" Width="204">
+        <Image x:Name="Logo" HorizontalAlignment="Right" Margin="0,10,657.6,306" Width="204">
             <Image.Source>
                 <BitmapImage UriSource="Images/logo.png"></BitmapImage>
             </Image.Source>
