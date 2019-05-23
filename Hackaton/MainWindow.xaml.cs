@@ -128,8 +128,20 @@ namespace Hackaton
         }
         private void Btn_Rechercher_Click(object sender, RoutedEventArgs e)
         {
+            int cpt = 0;
+            Dtg_datagrid01.UnselectAllCells();
 
+            foreach (Champion xxx in Dtg_datagrid01.Items)
+            {
+                if (xxx.Nom == TxtB_recherche.Text)
+                {
+                    cpt++;
+                    Dtg_datagrid01.SelectedItems.Add(xxx);
+                }
+            }
+            MessageBox.Show("Nombre d'occurences :" + Convert.ToString(cpt));
         }
+    }
 
     }
 }
