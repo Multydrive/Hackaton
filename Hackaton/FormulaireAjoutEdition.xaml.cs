@@ -22,23 +22,23 @@ namespace Hackaton
     public partial class FormulaireAjoutEdition : Window
     {
         string path = System.AppDomain.CurrentDomain.BaseDirectory;
-        string chemin;
-        int pas_bon;
-        string res;
+        string chemin; // chemin de l'image récupérée
+        string PathRelatif = "Champions\\";
+        string image; 
 
-        public FormulaireAjoutEdition()
+        public FormulaireAjoutEdition() // Constructeur par défaut 
         {
             InitializeComponent();
-            this.Title = "Ajout champion";
+            this.Title = "Ajout champion"; // Changement du nom de la feuille en Ajout champion si on clique sur ajout
             ComboBox_Classe.ItemsSource = Classe;
             ComboBox_Region.ItemsSource = Region;
             ComboBox_Sous_Classe.IsEnabled = false;
         }
 
-        public FormulaireAjoutEdition(Champion ttt)
+        public FormulaireAjoutEdition(Champion ttt) // Constructeur overridé
         {
             InitializeComponent();
-            this.Title = "Modification champion";
+            this.Title = "Modification champion"; // Changement du nom de la feuille en Modification champion si on clique sur ajout
             ComboBox_Classe.ItemsSource = Classe;
             ComboBox_Region.ItemsSource = Region;
 
@@ -54,9 +54,9 @@ namespace Hackaton
 
         }
 
-        public Champion RecupDonneesSaisies()
+        public Champion RecupDonneesSaisies() // retourne l'ensemble des données saisies
         {
-            return new Champion(chemin, Txtbox_Nom.Text, ComboBox_Region.Text, ComboBox_Classe.Text, ComboBox_Sous_Classe.Text, Date_Apparition.SelectedDate.Value);
+            return new Champion(image, Txtbox_Nom.Text, ComboBox_Region.Text, ComboBox_Classe.Text, ComboBox_Sous_Classe.Text, Date_Apparition.SelectedDate.Value);
         }
 
         //Listes des Combos Box
@@ -69,6 +69,7 @@ namespace Hackaton
         private List<string> _controleur = new List<string>() { "Enchanteur", "Piegeur" };
         private List<string> _tireur = new List<string>() { "Tireur" };
 
+        // Accesseurs et mutateurs des listes des Combo Box
         public List<string> Region { get => _region; }
         public List<string> Classe { get => _classe; }
         public List<string> Tank { get => _tank; }
@@ -80,22 +81,23 @@ namespace Hackaton
 
 
 
-        public void Btn_Open_Click(object sender, RoutedEventArgs e)
+        public void Btn_Open_Click(object sender, RoutedEventArgs e) // Si on clique sur le bouton afin de choisir une image :
         {
 
-            string path = System.AppDomain.CurrentDomain.BaseDirectory;
+            string path = System.AppDomain.CurrentDomain.BaseDirectory; // Rechercher le chemin dans lequel se trouve le fichier .exe
 
-            OpenFileDialog op = new OpenFileDialog();
-            op.Multiselect = false;
+            OpenFileDialog op = new OpenFileDialog(); // Ouverture boite de dialogue d'ouverture de fichier
+            op.Multiselect = false; // Empêche de sélectionner plusieurs fichiers
             op.Title = "Choisir une image";
-            op.Filter = "Fichiers images|*.png";
+            op.Filter = "Fichiers images|*.png"; // Impose de choisir des fichiers .png
 
-            if (op.ShowDialog() == true)
+            if (op.ShowDialog() == true) 
             {
-                Img_Champion.Source = new BitmapImage(new Uri(op.FileName));
+                Img_Champion.Source = new BitmapImage(new Uri(op.FileName)); // Création d'une image bitmap afin de contenir l'image sélectionnée
 
             }
-            chemin = op.FileName;
+            
+            chemin = op.FileName; // copie du chemin de l'image récupérée dans la variable chemin
 
 
         }
@@ -154,26 +156,30 @@ namespace Hackaton
 
         private void Btn_Valider_Click(object sender, RoutedEventArgs e)
         {
-            /* if (File.Exists (path + nomdedossier))
-            {
-
-            }
-            else
-            {
-                // File.Copy(chemin, path + nomdedossier);
-
-            }*/
+            string nomphoto; 
+            
             if (Txtbox_Nom.Text == null || ComboBox_Classe.SelectedIndex == -1 || ComboBox_Sous_Classe.SelectedIndex == -1 || ComboBox_Region.SelectedIndex == -1 || Date_Apparition.SelectedDate == null)
             {
                 MessageBox.Show("Un champ n'est pas rempli");
             }
             else
             {
+                nomphoto = Txtbox_Nom.Text + ".png";
                 this.DialogResult = true;
-            }
+                if (File.Exists(path + PathRelatif + nomphoto) == true)
+                {
+                    while (File.Exists(path + PathRelatif + nomphoto))
+                    {
+                        
+                        Random rand = new Random();
+                        int numero = rand.Next(0, 10);
+                       nomphoto = Convert.ToString(numero) + nomphoto;
+                    }
 
-            
-            
+                }
+                File.Copy(chemin, path + PathRelatif + nomphoto);
+                image = path + PathRelatif + nomphoto;
+            }
 
         }
 
@@ -189,7 +195,6 @@ namespace Hackaton
 
             if (!(regexItem.IsMatch(Txtbox_Nom.Text)))
             {
-                //res += "le titre " + Txtbox_Nom.Text +  "n est pas correct car cela ne ejefhehfjdfhgjdhgdjfhg";
                 Txtbox_Nom.Text = Txtbox_Nom.Text.Remove(Txtbox_Nom.Text.Count() - 1, 1);
                 Txtbox_Nom.CaretIndex = Txtbox_Nom.Text.Count();
             }
