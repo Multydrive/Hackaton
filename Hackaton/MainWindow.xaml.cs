@@ -26,12 +26,12 @@ namespace Hackaton
         {
             InitializeComponent();
             DataContext = listing;
-            ComboBox_List.ItemsSource = Choix;
+            ComboBox_List.ItemsSource = Choix; //link de la combobox choix
             ComboBox_List.SelectedIndex = 0;
         }
 
         ObservableCollection<Champion> listing = new ObservableCollection<Champion>();
-        string path = System.AppDomain.CurrentDomain.BaseDirectory;
+        string path = System.AppDomain.CurrentDomain.BaseDirectory; //chemin d acces de l executable
         string nomdefichier = "/database.txt";
 
         //liste combo_box recherche
@@ -70,9 +70,9 @@ namespace Hackaton
                 fenetre2.Close();
             }
         }
-        private void Btn_Suppprimer_Click(object sender, RoutedEventArgs e)
+        private void Btn_Suppprimer_Click(object sender, RoutedEventArgs e) //supprime un objet de la liste
         {
-            if (Dtg_datagrid01.SelectedItems.Count == 1)
+            if (Dtg_datagrid01.SelectedItems.Count == 1) 
             {
                 Champion tmp = Dtg_datagrid01.Items[Dtg_datagrid01.SelectedIndex] as Champion;
                 listing.Remove(tmp);
@@ -84,7 +84,7 @@ namespace Hackaton
         }
 
 
-        private void Btn_Lecture_Click(object sender, RoutedEventArgs e)
+        private void Btn_Lecture_Click(object sender, RoutedEventArgs e) //import de la database dans l application
         {
             if (File.Exists(path + nomdefichier) == true)
             {
@@ -95,13 +95,13 @@ namespace Hackaton
                     string tmp = lecteur.ReadLine();
                     string[] donnees_eclatees = tmp.Split('#');
 
-                    short Y, M, D;
+                    short Y, M, D;  //recuperation de la date de parution
                     Int16.TryParse(donnees_eclatees[7], out Y);
                     Int16.TryParse(donnees_eclatees[6], out M);
                     Int16.TryParse(donnees_eclatees[5], out D);
 
                     DateTime date = new DateTime(Y, M, D);
-                    listing.Add(new Champion(donnees_eclatees[0], donnees_eclatees[1], donnees_eclatees[2], donnees_eclatees[3], donnees_eclatees[4], date));
+                    listing.Add(new Champion(donnees_eclatees[0], donnees_eclatees[1], donnees_eclatees[2], donnees_eclatees[3], donnees_eclatees[4], date)); //remplissage de database
                 }
                 lecteur.Close();
                 MessageBox.Show("L'importation a été réussite avec succés");
@@ -111,7 +111,7 @@ namespace Hackaton
                 MessageBox.Show("Fichier non trouvé");
             }
         }
-        private void Btn_Sauvegarder_Click(object sender, RoutedEventArgs e)
+        private void Btn_Sauvegarder_Click(object sender, RoutedEventArgs e) //sauvergarde les donnees de l application dans database
         {
             StreamWriter ecriveur = new StreamWriter(path + nomdefichier, false);
             foreach (Champion xxx in listing)
@@ -121,7 +121,7 @@ namespace Hackaton
             ecriveur.Close();
             MessageBox.Show("La sauvegarde a été effectué");
         }
-        private void Btn_Rechercher_Click(object sender, RoutedEventArgs e)
+        private void Btn_Rechercher_Click(object sender, RoutedEventArgs e) //recherche l'element de la textbox en ciblant la colonne par rapport a la combobox
         {
             int cpt = 0;
             Dtg_datagrid01.UnselectAllCells();
@@ -172,7 +172,7 @@ namespace Hackaton
                 break;
             }
             
-            MessageBox.Show("Nombre d'occurences :" + Convert.ToString(cpt));
+            MessageBox.Show("Nombre d'occurences :" + Convert.ToString(cpt)); //nombre d element contenant la recherche
         }
 
     }
