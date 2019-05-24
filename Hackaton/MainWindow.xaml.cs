@@ -26,11 +26,16 @@ namespace Hackaton
         {
             InitializeComponent();
             DataContext = listing;
+            ComboBox_List.ItemsSource = Choix;
+            ComboBox_List.SelectedIndex = 0;
         }
 
         ObservableCollection<Champion> listing = new ObservableCollection<Champion>();
         string path = System.AppDomain.CurrentDomain.BaseDirectory;
         string nomdefichier = "/database.txt";
+
+        //liste combo_box recherche
+        private List<string> Choix = new List<string>() { "Nom", "Region", "Classe", "Sous-Classe" };
 
         private void Btn_Ajouter_Click(object sender, RoutedEventArgs e)
         {
@@ -120,15 +125,53 @@ namespace Hackaton
         {
             int cpt = 0;
             Dtg_datagrid01.UnselectAllCells();
-
-            foreach (Champion xxx in Dtg_datagrid01.Items)
+            switch (ComboBox_List.SelectedIndex)
             {
-                if (xxx.Nom == TxtB_recherche.Text)
-                {
-                    cpt++;
-                    Dtg_datagrid01.SelectedItems.Add(xxx);
-                }
+                case 0: //Nom
+                    foreach (Champion xxx in Dtg_datagrid01.Items)
+                    {
+                        if (xxx.Nom == TxtB_recherche.Text)
+                        {
+                            cpt++;
+                            Dtg_datagrid01.SelectedItems.Add(xxx);
+                        }
+                    }
+                    break;
+
+                case 1: //Region
+                    foreach (Champion xxx in Dtg_datagrid01.Items)
+                    {
+                        if (xxx.Region == TxtB_recherche.Text)
+                        {
+                            cpt++;
+                            Dtg_datagrid01.SelectedItems.Add(xxx);
+                        } 
+                    }
+                    break;
+
+                case 2: //Classe
+                    foreach (Champion xxx in Dtg_datagrid01.Items)
+                    {
+                        if (xxx.Classe == TxtB_recherche.Text)
+                        {
+                            cpt++;
+                            Dtg_datagrid01.SelectedItems.Add(xxx);
+                        }
+                    }
+                    break;
+
+                case 3: //Sous-classe
+                    foreach (Champion xxx in Dtg_datagrid01.Items)
+                    {
+                        if (xxx.Sous_classe == TxtB_recherche.Text)
+                        {
+                            cpt++;
+                            Dtg_datagrid01.SelectedItems.Add(xxx);
+                        }
+                    }
+                break;
             }
+       
             MessageBox.Show("Nombre d'occurences :" + Convert.ToString(cpt));
         }
 
