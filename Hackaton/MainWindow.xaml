@@ -30,7 +30,7 @@
                 <DataGridTextColumn Header="Région :" Width="33*" Binding="{Binding Region}"/>
                 <DataGridTextColumn Header="Classe :" Width="34*" Binding="{Binding Classe}"/>
                 <DataGridTextColumn Header="Sous-Classe :" Width="34*" Binding="{Binding Sous_classe}"/>
-                <DataGridTextColumn Header="Date de Sortie :" Width="34*" Binding="{Binding Apparition}"/>
+                <DataGridTextColumn Header="Date de Sortie :" Width="34*" Binding="{Binding Apparition, StringFormat={}{0:dd/MM/yyyy}}"/>
             </DataGrid.Columns>
 
         </DataGrid>
