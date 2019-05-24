@@ -19,7 +19,13 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Image :" Width="34*" Binding="{Binding Image}"/>
+                <DataGridTemplateColumn Header="Cover" Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Height="40" Width="30" Source="{Binding Image}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Nom :" Width="33*" Binding="{Binding Nom}"/>
                 <DataGridTextColumn Header="Région :" Width="33*" Binding="{Binding Region}"/>
                 <DataGridTextColumn Header="Classe :" Width="34*" Binding="{Binding Classe}"/>
