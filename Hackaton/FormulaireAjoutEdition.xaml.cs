@@ -51,7 +51,7 @@ namespace Hackaton
 
         public Champion RecupDonneesSaisies()
         {
-            return new Champion(Txtbox_Nom.Text, ComboBox_Region.Text, ComboBox_Classe.Text, ComboBox_Sous_Classe.Text, chemin , Date_Apparition.SelectedDate.Value);
+            return new Champion(chemin, Txtbox_Nom.Text, ComboBox_Region.Text, ComboBox_Classe.Text, ComboBox_Sous_Classe.Text, Date_Apparition.SelectedDate.Value);
         }
 
         //Listes des Combos Box
