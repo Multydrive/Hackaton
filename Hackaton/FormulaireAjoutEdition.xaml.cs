@@ -22,7 +22,8 @@ namespace Hackaton
     {
         string path = System.AppDomain.CurrentDomain.BaseDirectory;
         string nomdedossier = "/Champions";
-        string chemin; 
+        string chemin;
+       
 
         public FormulaireAjoutEdition()
         {
@@ -43,7 +44,7 @@ namespace Hackaton
 
         public Champion RecupDonneesSaisies()
         {
-            return new Champion(Txtbox_Nom.Text, ComboBox_Region.Text, ComboBox_Classe.Text, ComboBox_Sous_Classe.Text, chemin, Date_Apparition.SelectedDate.Value);
+            return new Champion(Txtbox_Nom.Text, ComboBox_Region.Text, ComboBox_Classe.Text, ComboBox_Sous_Classe.Text, path , Date_Apparition.SelectedDate.Value);
         }
 
         //Listes des Combos Box
@@ -69,12 +70,13 @@ namespace Hackaton
 
         public void Btn_Open_Click(object sender, RoutedEventArgs e)
         {
-           
+            string path = System.AppDomain.CurrentDomain.BaseDirectory;
             string sFilenames = "";
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Multiselect = false;
             fileDialog.Filter = "Fichiers images|*.png";
             Nullable<bool> dialogOK = fileDialog.ShowDialog();
+
 
             if (dialogOK == true)
             {
@@ -82,16 +84,25 @@ namespace Hackaton
                 // < @loop: Filenames > 
                 foreach (string sFilename in fileDialog.FileNames)
                 {
-                    //collect string sFilenames += ";" + sFilename; 
+                    //collect string 
+                    sFilenames += ";" + sFilename; 
                 }
                 sFilenames = sFilenames.Substring(1); //delete first ; 
                 // </ @Loop: Filenames > 
-                // Txtb1.Text = sFilenames; textbox supprimée car inutile
+                Txtb1.Text = sFilenames; 
                chemin = sFilenames;
+
+                BitmapImage source = new BitmapImage(); // crée image
+                source.BeginInit();
+                source.UriSource = new Uri(chemin + ".png");// car nom des images sont des chiffres comme selected indice , ainsi utilise pas de switch
+                source.EndInit();
+                Img_Champion.Source = source;
             }
-            
+
+
+
         }
-        
+
 
         private void WindowFormulaire_Loaded(object sender, RoutedEventArgs e)
         {
@@ -142,15 +153,18 @@ namespace Hackaton
 
         private void Btn_Valider_Click(object sender, RoutedEventArgs e)
         {
-            if (File.Exists (path + nomdedossier))
+            /* if (File.Exists (path + nomdedossier))
             {
 
             }
             else
             {
-                File.Copy(chemin, path + nomdedossier);
-            }
-            this.DialogResult = true;
+                // File.Copy(chemin, path + nomdedossier);
+
+            }*/
+            this.DialogResult = true; 
+
+
         }
 
         private void Btn_Annuler_Click(object sender, RoutedEventArgs e)
