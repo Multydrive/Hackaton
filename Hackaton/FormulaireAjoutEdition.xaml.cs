@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.Collections.ObjectModel; // Collection observable 
 using System.IO; // Accès fichiers lecture-ecriture
+using System.Text.RegularExpressions;
 
 namespace Hackaton
 {
@@ -23,6 +24,7 @@ namespace Hackaton
         string path = System.AppDomain.CurrentDomain.BaseDirectory;
         string chemin;
         int pas_bon;
+        string res;
 
         public FormulaireAjoutEdition()
         {
@@ -183,27 +185,16 @@ namespace Hackaton
         private void Txtbox_Nom_KeyUp(object sender, KeyEventArgs e)
         {
             
-            char[] alphabet = new char[] {'A','a','B','b','C','c','D','d','E','e','F','f','G','g', 'H','h','I','i','J','j','K','k','L','l','M','m',
-                'N', 'n', 'O', 'o', 'P','p', 'Q','q', 'R', 'r', 'S', 's', 'T', 't', 'U', 'u', 'V', 'v', 'W', 'w', 'X', 'x', 'Y', 'y', 'Z', 'z', '\'',' ','-' };
+            Regex regexItem = new Regex("^[a-zA-Z\\'\\-]*$");
 
+            if (!(regexItem.IsMatch(Txtbox_Nom.Text)))
+            {
+                //res += "le titre " + Txtbox_Nom.Text +  "n est pas correct car cela ne ejefhehfjdfhgjdhgdjfhg";
+                Txtbox_Nom.Text = Txtbox_Nom.Text.Remove(Txtbox_Nom.Text.Count() - 1, 1);
+                Txtbox_Nom.CaretIndex = Txtbox_Nom.Text.Count();
+            }
            
-            for (int i = 0; i < 55; i++)
-            {
-                if (Convert.ToString(e.Key) != Convert.ToString( alphabet[i] ))
-                {
-                    pas_bon = 1;
-                }
-                else
-                {
-                    pas_bon = 0;
-                }
-            }
-           if (pas_bon == 1)
-            {
-                int tmp = Txtbox_Nom.Text.Length;
-                Txtbox_Nom.Text.Remove(tmp-1,1);
-                MessageBox.Show("Veuillez entrer un caractère autorisé : lettre, apostrophe,tiret ou espace");
-            }
+        
         }
     }
 
