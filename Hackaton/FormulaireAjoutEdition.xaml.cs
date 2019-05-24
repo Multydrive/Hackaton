@@ -51,7 +51,7 @@ namespace Hackaton
 
         public Champion RecupDonneesSaisies()
         {
-            return new Champion(Txtbox_Nom.Text, ComboBox_Region.Text, ComboBox_Classe.Text, ComboBox_Sous_Classe.Text, path , Date_Apparition.SelectedDate.Value);
+            return new Champion(Txtbox_Nom.Text, ComboBox_Region.Text, ComboBox_Classe.Text, ComboBox_Sous_Classe.Text, chemin , Date_Apparition.SelectedDate.Value);
         }
 
         //Listes des Combos Box
@@ -77,35 +77,20 @@ namespace Hackaton
 
         public void Btn_Open_Click(object sender, RoutedEventArgs e)
         {
+
             string path = System.AppDomain.CurrentDomain.BaseDirectory;
-            string sFilenames = "";
-            OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Multiselect = false;
-            fileDialog.Filter = "Fichiers images|*.png";
-            Nullable<bool> dialogOK = fileDialog.ShowDialog();
 
+            OpenFileDialog op = new OpenFileDialog();
+            op.Multiselect = false;
+            op.Title = "Choisir une image";
+            op.Filter = "Fichiers images|*.png";
 
-            if (dialogOK == true)
+            if (op.ShowDialog() == true)
             {
-                
-                // < @loop: Filenames > 
-                foreach (string sFilename in fileDialog.FileNames)
-                {
-                    //collect string 
-                    sFilenames += ";" + sFilename; 
-                }
-                sFilenames = sFilenames.Substring(1); //delete first ; 
-                // </ @Loop: Filenames > 
-                Txtb1.Text = sFilenames; 
-               chemin = sFilenames;
+                Img_Champion.Source = new BitmapImage(new Uri(op.FileName));
 
-                BitmapImage source = new BitmapImage(); // crée image
-                source.BeginInit();
-                source.UriSource = new Uri(chemin + ".png");// car nom des images sont des chiffres comme selected indice , ainsi utilise pas de switch
-                source.EndInit();
-                Img_Champion.Source = source;
             }
-
+            chemin = op.FileName;
 
 
         }
@@ -182,6 +167,8 @@ namespace Hackaton
         {
             this.DialogResult = false;
         }
+
+      
     }
 
 }
