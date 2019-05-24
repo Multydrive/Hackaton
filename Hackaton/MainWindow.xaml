@@ -19,7 +19,7 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header="Cover" Width="Auto">
+                <DataGridTemplateColumn Header="Image :" Width="90">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Image Height="40" Width="30" Source="{Binding Image}"/>
@@ -30,7 +30,7 @@
                 <DataGridTextColumn Header="Région :" Width="33*" Binding="{Binding Region}"/>
                 <DataGridTextColumn Header="Classe :" Width="34*" Binding="{Binding Classe}"/>
                 <DataGridTextColumn Header="Sous-Classe :" Width="34*" Binding="{Binding Sous_classe}"/>
-                <DataGridTextColumn Header="Date de Sortie" Width="34*" Binding="{Binding Apparition}"/>
+                <DataGridTextColumn Header="Date de Sortie :" Width="34*" Binding="{Binding Apparition}"/>
             </DataGrid.Columns>
 
         </DataGrid>
