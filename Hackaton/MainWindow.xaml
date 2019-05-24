@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Hackaton"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="900"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <CollectionViewSource x:Key="ListingDesPersonnages" Source="{Binding}"/>
     </Window.Resources>
