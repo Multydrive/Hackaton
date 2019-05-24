@@ -29,17 +29,24 @@ namespace Hackaton
         {
             InitializeComponent();
             this.Title = "Ajout champion";
+            ComboBox_Classe.ItemsSource = Classe;
+            ComboBox_Region.ItemsSource = Region;
+            ComboBox_Sous_Classe.IsEnabled = false;
         }
 
-        public FormulaireAjoutEdition(Champion ttt) 
+        public FormulaireAjoutEdition(Champion ttt)
         {
             InitializeComponent();
             this.Title = "Modification champion";
+            ComboBox_Classe.ItemsSource = Classe;
+            ComboBox_Region.ItemsSource = Region;
+
             Txtbox_Nom.Text = ttt.Nom;
-            ComboBox_Classe.Text = ttt.Classe;
-            ComboBox_Sous_Classe.Text = ttt.Sous_classe;
-            ComboBox_Region.Text = ttt.Region;
+            ComboBox_Classe.SelectedIndex = _classe.IndexOf(ttt.Classe);
+            ComboBox_Region.SelectedIndex = _region.IndexOf(ttt.Region);
+            Choix_SousClasse(ComboBox_Classe.SelectedIndex, ttt);
             Date_Apparition.SelectedDate = ttt.Apparition ;
+            
         }
 
         public Champion RecupDonneesSaisies()
@@ -102,49 +109,53 @@ namespace Hackaton
 
 
         }
-
-
-        private void WindowFormulaire_Loaded(object sender, RoutedEventArgs e)
-        {
-            //initialisation des listes de classes
-            ComboBox_Classe.ItemsSource = Classe;
-            ComboBox_Region.ItemsSource = Region;
-            ComboBox_Sous_Classe.IsEnabled = false;
-
-        }
+ 
 
         private void ComboBox_Classe_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            switch (ComboBox_Classe.SelectedIndex)
+            Choix_SousClasse(ComboBox_Classe.SelectedIndex, null);
+        }
+
+        private void Choix_SousClasse(int Index, Champion ttt)
+        {
+            if (ttt == null) ttt = new Champion(null, null, null, null, null, DateTime.Now);
+
+            switch (Index)
             {
                 case 0: //Tank
                     ComboBox_Sous_Classe.IsEnabled = true;
                     ComboBox_Sous_Classe.ItemsSource = Tank;
+                    ComboBox_Sous_Classe.SelectedIndex = _tank.IndexOf(ttt.Sous_classe);
                     break;
 
                 case 1: //Combattant
                     ComboBox_Sous_Classe.IsEnabled = true;
-                    ComboBox_Sous_Classe.ItemsSource = Tank;
+                    ComboBox_Sous_Classe.ItemsSource = Combattant;
+                    ComboBox_Sous_Classe.SelectedIndex = _combattant.IndexOf(ttt.Sous_classe);
                     break;
 
                 case 2: //Tueur
                     ComboBox_Sous_Classe.IsEnabled = true;
                     ComboBox_Sous_Classe.ItemsSource = Tueur;
+                    ComboBox_Sous_Classe.SelectedIndex = _tueur.IndexOf(ttt.Sous_classe);
                     break;
 
                 case 3: //Mage
                     ComboBox_Sous_Classe.IsEnabled = true;
                     ComboBox_Sous_Classe.ItemsSource = Mage;
+                    ComboBox_Sous_Classe.SelectedIndex = _mage.IndexOf(ttt.Sous_classe);
                     break;
 
                 case 4: //Controleur
                     ComboBox_Sous_Classe.IsEnabled = true;
                     ComboBox_Sous_Classe.ItemsSource = Controleur;
+                    ComboBox_Sous_Classe.SelectedIndex = _controleur.IndexOf(ttt.Sous_classe);
                     break;
 
                 case 5: //Tireur
                     ComboBox_Sous_Classe.IsEnabled = true;
                     ComboBox_Sous_Classe.ItemsSource = Tireur;
+                    ComboBox_Sous_Classe.SelectedIndex = _tireur.IndexOf(ttt.Sous_classe);
                     break;
             }
         }
