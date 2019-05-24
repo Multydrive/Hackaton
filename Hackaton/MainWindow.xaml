@@ -11,7 +11,7 @@
         <CollectionViewSource x:Key="ListingDesPersonnages" Source="{Binding}"/>
     </Window.Resources>
     <Grid Background="Black">
-        <DataGrid x:Name="Dtg_datagrid01" HorizontalAlignment="Left" Height="310" Margin="278,21,0,0" VerticalAlignment="Top" IsReadOnly="True" 
+        <DataGrid x:Name="Dtg_datagrid01" HorizontalAlignment="Left" Height="310" Margin="278,21,0,0" VerticalAlignment="Top" IsReadOnly="True" CanUserResizeColumns="False" CanUserResizeRows="False"
                   Width="585" Background="#FF171414" BorderBrush="#FFF3B227" Foreground="#FFF1B81E" FontFamily="Friz Quadrata TT" AutoGenerateColumns="False" ItemsSource="{Binding Source={StaticResource ListingDesPersonnages}}" RowBackground="Black">
             <DataGrid.Resources>
                 <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
