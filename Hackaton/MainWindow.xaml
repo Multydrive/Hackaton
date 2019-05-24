@@ -68,7 +68,7 @@
             </Button.Background>
         </Button>
         <TextBox x:Name="TxtB_recherche" Text="Rechercher" HorizontalAlignment="Left" Margin="326,364,0,0" VerticalAlignment="Top" Width="386" Height="31" Background="#FF171B1D" FontFamily="Friz Quadrata TT" Foreground="#FFF9B115" FontSize="18"/>
-        <Button x:Name="Btn_Rechercher" Content="Button" HorizontalAlignment="Left" Margin="779,355,0,0" VerticalAlignment="Top" Width="51" Height="44" Foreground="#FFF39917" BorderBrush="#FFF5891D" Click="Btn_Rechercher_Click">
+        <Button x:Name="Btn_Rechercher" Content="" HorizontalAlignment="Left" Margin="779,355,0,0" VerticalAlignment="Top" Width="51" Height="44" Foreground="#FFF39917" BorderBrush="#FFF5891D" Click="Btn_Rechercher_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Images/recherche.jpg"/>
             </Button.Background>
