@@ -161,7 +161,14 @@ namespace Hackaton
                 // File.Copy(chemin, path + nomdedossier);
 
             }*/
-            this.DialogResult = true; 
+            if (Txtbox_Nom.Text==null|| ComboBox_Classe.SelectedIndex==-1|| ComboBox_Sous_Classe.SelectedIndex==-1|| ComboBox_Region.SelectedIndex==-1|| Date_Apparition.SelectedDate==null)
+            {
+                MessageBox.Show("Un champ n'est pas rempli");
+            }
+            else
+            {
+                this.DialogResult = true;
+            }
 
 
         }
