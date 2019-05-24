@@ -25,7 +25,7 @@ namespace Hackaton
         public DateTime Apparition { get => _apparition; set => _apparition = value; }
 
         //constructeur
-        public Champion(string pnom, string pregion, string pclasse, string psous_classe, string pimage, DateTime papparition)
+        public Champion(string pimage, string pnom, string pregion, string pclasse, string psous_classe, DateTime papparition)
         {
             this._nom = pnom;
             this._region = pregion;
