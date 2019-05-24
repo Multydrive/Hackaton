@@ -114,9 +114,6 @@
     <Resource Include="Images\recherche.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="database.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="resize_VY3_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
