@@ -17,13 +17,12 @@ using System.IO; // Accès fichiers lecture-ecriture
 
 namespace Hackaton
 {
-   
+
     public partial class FormulaireAjoutEdition : Window
     {
         string path = System.AppDomain.CurrentDomain.BaseDirectory;
-        string nomdedossier = "/Champions";
         string chemin;
-       
+        int pas_bon;
 
         public FormulaireAjoutEdition()
         {
@@ -44,13 +43,13 @@ namespace Hackaton
             if (!File.Exists(ttt.Image)) ttt.Image = null;
             if (ttt.Image != null) Img_Champion.Source = new BitmapImage(new Uri(ttt.Image));
 
-            chemin = ttt.Image; 
+            chemin = ttt.Image;
             Txtbox_Nom.Text = ttt.Nom;
             ComboBox_Classe.SelectedIndex = _classe.IndexOf(ttt.Classe);
             ComboBox_Region.SelectedIndex = _region.IndexOf(ttt.Region);
             Choix_SousClasse(ComboBox_Classe.SelectedIndex, ttt);
-            Date_Apparition.SelectedDate = ttt.Apparition ;
-            
+            Date_Apparition.SelectedDate = ttt.Apparition;
+
         }
 
         public Champion RecupDonneesSaisies()
@@ -59,12 +58,12 @@ namespace Hackaton
         }
 
         //Listes des Combos Box
-        private List<string> _region = new List<string>() { "Bandle", "Bilgewater", "Demacia", "Freljord", "Ionia", "Mont Targon", "Noxus", "Néant", "Piltover", "Shurima", "Zaun", "Iles Obscures", "Runeterra" };
+        private List<string> _region = new List<string>() { "Bandle", "Bilgewater", "Demacia", "Freljord", "Ionia", "Mont Targon", "Noxus", "Neant", "Piltover", "Shurima", "Zaun", "Iles Obscures", "Runeterra" };
         private List<string> _classe = new List<string>() { "Tank", "Combattant", "Tueur", "Mage", "Controleur", "Tireur" };
         private List<string> _tank = new List<string>() { "Initiateur", "Gardien" };
         private List<string> _combattant = new List<string>() { "Colosse", "Blitzer" };
         private List<string> _tueur = new List<string>() { "Assassin", "Escarmoucheur" };
-        private List<string> _mage = new List<string>() { "à Burst", "de Combat", "Artilleur" };
+        private List<string> _mage = new List<string>() { "a Burst", "de Combat", "Artilleur" };
         private List<string> _controleur = new List<string>() { "Enchanteur", "Piegeur" };
         private List<string> _tireur = new List<string>() { "Tireur" };
 
@@ -77,7 +76,7 @@ namespace Hackaton
         public List<string> Controleur { get => _controleur; }
         public List<string> Tireur { get => _tireur; }
 
-      
+
 
         public void Btn_Open_Click(object sender, RoutedEventArgs e)
         {
@@ -98,7 +97,7 @@ namespace Hackaton
 
 
         }
- 
+
 
         private void ComboBox_Classe_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -149,7 +148,7 @@ namespace Hackaton
             }
         }
 
-      
+
 
         private void Btn_Valider_Click(object sender, RoutedEventArgs e)
         {
@@ -162,7 +161,7 @@ namespace Hackaton
                 // File.Copy(chemin, path + nomdedossier);
 
             }*/
-            if (Txtbox_Nom.Text==null|| ComboBox_Classe.SelectedIndex==-1|| ComboBox_Sous_Classe.SelectedIndex==-1|| ComboBox_Region.SelectedIndex==-1|| Date_Apparition.SelectedDate==null)
+            if (Txtbox_Nom.Text == null || ComboBox_Classe.SelectedIndex == -1 || ComboBox_Sous_Classe.SelectedIndex == -1 || ComboBox_Region.SelectedIndex == -1 || Date_Apparition.SelectedDate == null)
             {
                 MessageBox.Show("Un champ n'est pas rempli");
             }
@@ -171,6 +170,8 @@ namespace Hackaton
                 this.DialogResult = true;
             }
 
+            
+            
 
         }
 
@@ -179,7 +180,31 @@ namespace Hackaton
             this.DialogResult = false;
         }
 
-      
+        private void Txtbox_Nom_KeyUp(object sender, KeyEventArgs e)
+        {
+            
+            char[] alphabet = new char[] {'A','a','B','b','C','c','D','d','E','e','F','f','G','g', 'H','h','I','i','J','j','K','k','L','l','M','m',
+                'N', 'n', 'O', 'o', 'P','p', 'Q','q', 'R', 'r', 'S', 's', 'T', 't', 'U', 'u', 'V', 'v', 'W', 'w', 'X', 'x', 'Y', 'y', 'Z', 'z', '\'',' ','-' };
+
+           
+            for (int i = 0; i < 55; i++)
+            {
+                if (Convert.ToString(e.Key) != Convert.ToString( alphabet[i] ))
+                {
+                    pas_bon = 1;
+                }
+                else
+                {
+                    pas_bon = 0;
+                }
+            }
+           if (pas_bon == 1)
+            {
+                int tmp = Txtbox_Nom.Text.Length;
+                Txtbox_Nom.Text.Remove(tmp-1,1);
+                MessageBox.Show("Veuillez entrer un caractère autorisé : lettre, apostrophe,tiret ou espace");
+            }
+        }
     }
 
 }
