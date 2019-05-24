@@ -123,58 +123,72 @@ namespace Hackaton
         }
         private void Btn_Rechercher_Click(object sender, RoutedEventArgs e) //recherche l'element de la textbox en ciblant la colonne par rapport a la combobox
         {
-            int cpt = 0;
-            Dtg_datagrid01.UnselectAllCells();
-            switch (ComboBox_List.SelectedIndex)
-            {
-                case 0: //Nom
-                    foreach (Champion xxx in Dtg_datagrid01.Items)
-                    {
-                        if (xxx.Nom == TxtB_recherche.Text)
+            if(TxtB_recherche.Text != "") //test si texb_recherche n'est pas vide
+            { 
+                int cpt = 0;
+                Dtg_datagrid01.UnselectAllCells();
+                switch (ComboBox_List.SelectedIndex) //change la colonne de selection
+                {
+                    case 0: //Nom
+                        foreach (Champion xxx in Dtg_datagrid01.Items)
                         {
-                            cpt++;
-                            Dtg_datagrid01.SelectedItems.Add(xxx);
+                            if (xxx.Nom == TxtB_recherche.Text)
+                            {
+                                Dtg_datagrid01.SelectedItems.Add(xxx);
+                            }
                         }
-                    }
-                    break;
 
-                case 1: //Region
-                    foreach (Champion xxx in Dtg_datagrid01.Items)
-                    {
-                        if (xxx.Region == TxtB_recherche.Text)
-                        {
-                            cpt++;
-                            Dtg_datagrid01.SelectedItems.Add(xxx);
-                        } 
-                    }
-                    break;
+                        break;
 
-                case 2: //Classe
-                    foreach (Champion xxx in Dtg_datagrid01.Items)
-                    {
-                        if (xxx.Classe == TxtB_recherche.Text)
+                    case 1: //Region
+                        foreach (Champion xxx in Dtg_datagrid01.Items)
                         {
-                            cpt++;
-                            Dtg_datagrid01.SelectedItems.Add(xxx);
+                            if (xxx.Region == TxtB_recherche.Text)
+                            {
+                                Dtg_datagrid01.SelectedItems.Add(xxx);
+                            }
                         }
-                    }
-                    break;
+                        break;
 
-                case 3: //Sous-classe
-                    foreach (Champion xxx in Dtg_datagrid01.Items)
-                    {
-                        if (xxx.Sous_classe == TxtB_recherche.Text)
+                    case 2: //Classe
+                        foreach (Champion xxx in Dtg_datagrid01.Items)
                         {
-                            cpt++;
-                            Dtg_datagrid01.SelectedItems.Add(xxx);
+                            if (xxx.Classe == TxtB_recherche.Text)
+                            {
+                                Dtg_datagrid01.SelectedItems.Add(xxx);
+                            }
                         }
-                    }
-                break;
+                        break;
+
+                    case 3: //Sous-classe
+                        foreach (Champion xxx in Dtg_datagrid01.Items)
+                        {
+                            if (xxx.Sous_classe == TxtB_recherche.Text)
+                            {
+                                Dtg_datagrid01.SelectedItems.Add(xxx);
+                            }
+                        }
+                        break;
+                }
+                ObservableCollection<Champion> listetmp = new ObservableCollection<Champion>();
+                foreach (Champion xxx in Dtg_datagrid01.SelectedItems)
+                {
+                    listetmp.Add(xxx);
+                }
+                DataContext = listetmp;
+                cpt = listetmp.Count();
+                MessageBox.Show("Nombre d'occurences :" + Convert.ToString(cpt)); //nombre d element contenant la recherche
             }
-            
-            MessageBox.Show("Nombre d'occurences :" + Convert.ToString(cpt)); //nombre d element contenant la recherche
+            else
+            {
+                MessageBox.Show("Veuillez entrer un texte à rechercher");
+            }
         }
 
+        private void TxtB_recherche_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (TxtB_recherche.Text.Count() == 0) { this.DataContext = listing; }
+        }
     }
 
     
