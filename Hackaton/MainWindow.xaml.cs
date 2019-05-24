@@ -99,6 +99,7 @@ namespace Hackaton
                     listing.Add(new Champion(donnees_eclatees[0], donnees_eclatees[1], donnees_eclatees[2], donnees_eclatees[3], donnees_eclatees[4], date));
                 }
                 lecteur.Close();
+                MessageBox.Show("L'importation a été réussite avec succés");
             }
             else
             {
@@ -113,6 +114,7 @@ namespace Hackaton
                 ecriveur.WriteLine(xxx.ToString());
             }
             ecriveur.Close();
+            MessageBox.Show("La sauvegarde a été effectué");
         }
         private void Btn_Rechercher_Click(object sender, RoutedEventArgs e)
         {
