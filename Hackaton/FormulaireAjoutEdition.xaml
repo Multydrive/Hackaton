@@ -9,7 +9,7 @@
     <Grid>
         <Label Content="Date de parution" HorizontalAlignment="Left" Margin="418,231,0,0" VerticalAlignment="Top" Width="120" Height="26" Foreground="#FFB87C3D" FontWeight="Bold" FontFamily="Friz Quadrata TT"/>
         <Label Content="Classe" HorizontalAlignment="Left" Margin="418,48,0,0" VerticalAlignment="Top" Width="120" Height="26" FontWeight="Bold" FontFamily="Friz Quadrata TT" Foreground="#FFB87C3D" Background="Transparent" />
-        <TextBox x:Name="Txtbox_Nom" HorizontalAlignment="Left" Height="22" Margin="19,28,0,0" TextWrapping="Wrap" Text="ENTRER NOM DU CHAMPION" VerticalAlignment="Top" Width="311" Background="{x:Null}" FontFamily="Friz Quadrata TT" Foreground="#FFB87C3D" FontWeight="Bold" BorderBrush="{x:Null}" FontSize="20" MaxLength="16" />
+        <TextBox x:Name="Txtbox_Nom" HorizontalAlignment="Left" Height="32" Margin="19,28,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="311" Background="{x:Null}" FontFamily="Friz Quadrata TT" Foreground="#FFB87C3D" FontWeight="Bold" BorderBrush="#FF110B0B" FontSize="20" MaxLength="16" KeyUp="Txtbox_Nom_KeyUp" />
         <Image x:Name="Img_Champion" HorizontalAlignment="Left" Height="115" Margin="19,60,0,0" VerticalAlignment="Top" Width="115" />
         <TextBox x:Name="Txtbox_Description" HorizontalAlignment="Left" Height="67" Margin="19,243,0,0" TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus." VerticalAlignment="Top" Width="254" BorderBrush="{x:Null}" FontFamily="Friz Quadrata TT" Background="{x:Null}" Foreground="#FFB87C3D" FontWeight="Bold" IsReadOnly="True" />
         <Label Content="Description" HorizontalAlignment="Left" Margin="19,213,0,0" VerticalAlignment="Top" Width="107" Height="25" Foreground="#FFB87C3D" FontWeight="Bold" FontFamily="Friz Quadrata TT"/>
@@ -43,7 +43,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Label Content="Nom :" HorizontalAlignment="Left" Margin="19,2,0,0" VerticalAlignment="Top" Width="120" Height="26" FontWeight="Bold" FontFamily="Friz Quadrata TT" Foreground="#FFB87C3D" Background="Transparent" />
+        <Label Content="Nom" HorizontalAlignment="Left" Margin="19,2,0,0" VerticalAlignment="Top" Width="120" Height="26" FontWeight="Bold" FontFamily="Friz Quadrata TT" Foreground="#FFB87C3D" Background="Transparent" />
         <Grid.Background>
             <ImageBrush ImageSource="Images\lol-wallpaper.jpg"/>
         </Grid.Background>
