@@ -41,8 +41,8 @@ namespace Hackaton
             ComboBox_Classe.ItemsSource = Classe;
             ComboBox_Region.ItemsSource = Region;
 
-           
-            Img_Champion.Source = new BitmapImage(new Uri(ttt.Image));
+           if (ttt.Image != null) Img_Champion.Source = new BitmapImage(new Uri(ttt.Image));
+
             chemin = ttt.Image; 
             Txtbox_Nom.Text = ttt.Nom;
             ComboBox_Classe.SelectedIndex = _classe.IndexOf(ttt.Classe);
